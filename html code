@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Custom Cursor Widget</title>
+    <style>
+        body {
+            cursor: none; /* Hide default cursor */
+            overflow: hidden; /* Prevent scrolling */
+        }
+        #custom-cursor {
+            position: absolute;
+            width: 30px; /* Adjust width and height as needed */
+            height: 30px;
+            background-image: url('https://static.wixstatic.com/media/d95e6d_8760ad17159d4e02b9eff3306bd00f37~mv2.png'); /https://static.wixstatic.com/media/d95e6d_8760ad17159d4e02b9eff3306bd00f37~mv2.png/
+            background-size: cover;
+            pointer-events: none; /* Ensure cursor doesn't interfere with clicks */
+            z-index: 9999; /* Ensure cursor is above other elements */
+            transition: transform 0.1s ease; /* Add smooth transition if desired */
+        }
+    </style>
+</head>
+<body>
+    <div id="custom-cursor"></div>
+    <script>
+        document.addEventListener("DOMContentLoaded", function() {
+            // Set up event listeners for mouse movement
+            document.addEventListener("mousemove", function(e) {
+                const cursor = document.getElementById("custom-cursor");
+                // Update cursor position
+                cursor.style.left = e.pageX + "px";
+                cursor.style.top = e.pageY + "px";
+            });
+        });
+    </script>
+</body>
+</html>
